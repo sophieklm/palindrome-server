@@ -11,7 +11,7 @@ const getScores = async () => {
   }
 }
 
-function getTopFiveScores(scores) {
+const getTopFiveScores = (scores) => {
   const sortedScores = scores.sort(function(a,b) {
     return b.points - a.points
   })
