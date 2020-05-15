@@ -8,6 +8,7 @@
     "test": "jest --maxWorkers=1 --watchAll --verbose"
   },
   "devDependencies": {
+    "eslint": "^7.0.0",
     "jest": "^26.0.1",
     "nodemon": "^2.0.4",
     "supertest": "^4.0.2"

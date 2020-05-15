@@ -3,7 +3,7 @@ const { sortScores, checkScore, saveScore, getScoresFromFile } = require('../hel
 module.exports.getTopScores = async ({ limit = 5 }) => {
   try {
     let scores = await getScoresFromFile();
-    sortedScores = sortScores(scores);
+    const sortedScores = sortScores(scores);
     return sortedScores.slice(0,limit)
   } catch (error) {
     console.log('Something went wrong: getTopScores', error);
