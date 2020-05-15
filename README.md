@@ -1,6 +1,6 @@
 ## Palindrome Game Service
 
-#####Approach:
+##### Approach:
 My main concern was keeping the code structure neat, for my own sanity and for future development. 
 
 If a new endpoint needs adding in the future, this can be added to `/routes/routes.js` and the controller/services updated to handle the rest.
@@ -9,7 +9,7 @@ The scoreController handles both getting the list of top scores and submitting a
 
 With a real database I wouldn't need some of the file helpers and would instead have some of the score check/save/validation functions as methods on the Score model.
 
-#####Structure:
+##### Structure:
 ```
 framework
 │   README.md
@@ -35,11 +35,11 @@ framework
 └───tests
 ```
 
-#####Run:
+##### Run:
 `npm start`
 
-#####Navigate to:
+##### Navigate to:
 `http://localhost:3000/`
 
-#####Run Tests: 
+##### Run Tests: 
 `npm test`
