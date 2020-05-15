@@ -1,26 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-
-const getScores = async () => {
-  try {
-    const data = fs.readFileSync(path.join(__dirname, '../scores.json'));
-    const scores = JSON.parse(data);
-    return scores;
-  } catch (error) {
-    console.log('Something went wrong: getScores', error);
-    throw new Error(error);
-  }
-}
-
-const sort = (array) => {
-  return array.sort(function(a,b) {
-    return b.points - a.points
-  })
-}
+const { sort } = require('../helpers/sort');
+const { checkScore, saveScore, getScoresFromFile } = require('../helpers/scoreHelpers');
 
 module.exports.getTopScores = async ({ limit = 5 }) => {
   try {
-    let scores = await getScores();
+    let scores = await getScoresFromFile();
     sortedScores = sort(scores);
     return sortedScores.slice(0,limit)
   } catch (error) {
@@ -29,3 +12,11 @@ module.exports.getTopScores = async ({ limit = 5 }) => {
   }
 }
 
+module.exports.submitScore = async (req) => {
+  let { name, word } = req.body;
+  const score = checkScore(word);
+  if (score > 0) {
+    await saveScore(name, score);
+  }
+  return score;
+}
