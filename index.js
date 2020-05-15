@@ -13,6 +13,8 @@ app.get('/', (req, res) => {
 });
 
 const port = 3000;
-app.listen(port, function() {
+const server = app.listen(port, function() {
 	console.log('Server', process.pid, 'listening on port', port);
 });
+
+module.exports = server;

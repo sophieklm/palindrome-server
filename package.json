@@ -4,9 +4,12 @@
     "express": "4.16.2"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "test": "jest --maxWorkers=1 --watchAll --verbose"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "jest": "^26.0.1",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
   }
 }
